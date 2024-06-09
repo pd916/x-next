@@ -5,11 +5,14 @@ import { signIn, useSession } from "next-auth/react"
 import { collection, deleteDoc, doc,getFirestore, onSnapshot, serverTimestamp, setDoc } from "firebase/firestore"
 import {app} from "../firebase"
 import { useEffect, useState } from "react"
+import { useRecoilState } from "recoil"
+import { modalState } from "../atom/modalAtom"
 
 export default function Icons({id, uid}){
 const {data:session} = useSession()
 const [isLiked, setIsLiked] = useState(false);
 const [likes, setLikes] = useState([])
+const [open, setOpen] = useRecoilState(modalState)
 const db = getFirestore(app)
     const likePost = async () => {
         if(session){
@@ -55,6 +58,7 @@ const db = getFirestore(app)
 
     return <div className="flex justify-start gap-5 p-2 text-gray-500">
     <HiOutlineChat
+    onClick={()=> setOpen(!open)}
      className="h-8 w-8 cursor-pointer rounded-full transition duration-500 ease-in-out p-2
       hover:text-sky-500 hover:bg-sky-100"/>
       

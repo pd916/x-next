@@ -4,6 +4,7 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import { HiArrowLeft } from 'react-icons/hi'
 import Link from 'next/link'
 import Post from '@/components/Post'
+import CommentsModal from '@/components/CommentsModal'
 
 
 export default async function PostPage({params}) {
@@ -23,6 +24,7 @@ export default async function PostPage({params}) {
       <h2 className='sm:text-lg'>Back</h2>
     </div>
     <Post post={data} id={data.id}/>
+    <CommentsModal id={params.id}/>
     </div>
   )
 }

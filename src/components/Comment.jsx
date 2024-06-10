@@ -18,7 +18,7 @@ export default function Comment() {
     const {data:session} = useSession()
     const db = getFirestore(app)
 
-    
+    const router = useRouter()
 
 
     useEffect(()=> {

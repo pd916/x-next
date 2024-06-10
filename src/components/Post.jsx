@@ -15,10 +15,10 @@ function Post({post, id}) {
       </div>
       <HiDotsHorizontal className='text-sm'/>
       </div>
-      <Link href={`/post/${id}`}>
+      <Link href={`/posts/${id}`}>
       <p className='text-gray-800 text-sm my-3'>{post?.text}</p>
       </Link>
-      <Link href={`/post/${id}`}>
+      <Link href={`/posts/${id}`}>
       <img src={post?.image} className='rounded-2xl mr-2'/>
       </Link>
       <Icons id={id} uid={post.uid}/>

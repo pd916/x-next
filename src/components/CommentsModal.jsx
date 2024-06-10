@@ -17,7 +17,8 @@ import Comt from "./Comt";
      <div>
      {
         comments.map((comment)=> (
-            <Comt key={comment.id} comment={comment.data()} id={comment.id}/>
+            <Comt key={comment.id} comment={comment.data()}
+             commentId={comment.id} orignalPostId={id}/>
         ))
      }
      </div>
